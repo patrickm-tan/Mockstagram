@@ -1,0 +1,11 @@
+Frameworks: 
+    -https://mladenplavsic.github.io/bootstrap-navbar-sidebar/#
+    -https://getbootstrap.com/
+    -http://php.net/manual/en/book.simplexml.php
+    
+Images:
+    -http://www.chenmaner.com/
+    -http://www.unsplash.com
+
+Biography:
+    -https://www.businessoffashion.com/community/people/chen-man

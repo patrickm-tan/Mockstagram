@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <!--
+        Lookbook is a outfit gallery website. Our website is hardcoded to 9 images, and a spotlight page. 
+
+        **NOTE**
+
+        For registering, please do not use any real information
+        run.command was to create a localhost easily for group members.
+        All PHP was ran off localserver, via terminal
+
+        Features:
+
+        -Double click an image to "Favourite/heart" the image
+        -Login/Register an account with the website (Default login: Username = admin / Password = password)
+        -Simple overlay on images, displaying heart and Title
+        -Social Media links
+        -Welcome Message depending on logged user
+        -Spotlight page, built with our own Javascript
+
+        Resources can be found under the resources.txt file, these are the various photos and frameworks used to help build the website.
+
+        Patrick Tan 1002567493
+        Rui Wang 1001358737
+        Shuai Wang 1001447026
+
+    -->
+
+<head>
+    <title>Lookbook</title>
+
+    <!--
+        Scripts for the page
+    -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!--
+        Css Links for the page 
+    -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/navbar-fixed-left.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+
+    <!--
+        This Internal Styling is for any overwrites for this page, that is different from styles.css
+    -->
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!--
+        Menu is fixed on the left via Bootstraps
+    -->
+    <nav class="navbar navbar-default navbar-fixed-left">
+        <h1>Lookbook</h1>
+        <div class="container">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="spotlight.html">Spotlight</a></li>
+            </ul>
+        </div>
+
+        <div id="filler"></div>
+
+        <form method="post" action="login.php">
+            <h2>Sign In/Up!</h2>
+            <input type="text" name="usern" placeholder="Username"/><br /><input type="text" name="passw" placeholder="Password"/><br />
+            <button type="submit">Login</button>
+            <button type="submit" formaction="register.php">Register</button>
+        </form>
+        
+        <div id="filler"></div>
+        
+        <div> Double Click the Heart to Favourite Images! </div>
+        <br/>
+        <a href="http://www.instagram.com"><i class="fa fa-instagram fa-2x"></i></a>
+        <a href="http://www.twitter.com"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="http://www.facebook.com"><i class="fa fa-facebook fa-2x"></i></a>
+   
+        <div id="filler2"></div>
+        
+        <div id="userWelcome"> 
+            <h2 id="loggedUser">No User</h2>
+        </div>
+
+    </nav>
+
+    <!--
+        Column created by bootstrap, to make grid of images
+    -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/yaroslav-blokhin-364678.jpg">
+                    <div class="overlayText">
+                        <p> Yaroslav Blokhin </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/brunel-johnson-381896.jpg">
+                    <div class="overlayText">
+                        <p> Brunel Johnson </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/dmitriy-ilkevich-437760.jpg">
+                    <div class="overlayText">
+                        <p> Dmitriy Ilkevich </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="emptyPadding"></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/ao-276766.jpg">
+                    <div class="overlayText">
+                        <p> Jing Tian </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/freestocks-org-197295.jpg">
+                    <div class="overlayText">
+                        <p> Lauren Sourel </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/lasaye-hommes-321336.jpg">
+                    <div class="overlayText">
+                        <p> Lasaye Hommes </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="emptyPadding"></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/pete-bellis-460916.jpg">
+                    <div class="overlayText">
+                        <p> Jessica Bellis </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/shifaaz-shamoon-465342.jpg">
+                    <div class="overlayText">
+                        <p> Taylor Reuter </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wrapper">
+                    <img src="assets/images/jordan-whitfield-449910.jpg">
+                    <div class="overlayText">
+                        <p> Jordan Whitfield </p>
+                        <i id="nonLiked" class="fa fa-heart-o fa-2x" ondblclick="favouriter(this)" style="color: #f46666"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
